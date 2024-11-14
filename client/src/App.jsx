@@ -5,7 +5,7 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Contactus from './components/Contactus'
 import Updateproduct from './components/Updateproduct'
 import Addproduct from './components/Addproduct'
-import Login from "./components/Login"
+import Login from "./Components/Login"
 import BarcodeScanner from "./pages/react"
 import HomePage from './Components/Homepage';
 import Productdetail from './components/productdetail';

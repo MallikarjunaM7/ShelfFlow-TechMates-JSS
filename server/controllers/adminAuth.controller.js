@@ -1,10 +1,7 @@
-// const { access } = require("fs");
 const Admin = require("../models/admin.model.js"); 
-// const jwt = require("jsonwebtoken")
 const crypto = require("crypto")
 const Otps = require("../models/otp-model")
 const nodemailer = require("nodemailer")
-// const bcrypt = require("bcrypt")
 
 const registerAdmin  = async(req, res) =>{
 

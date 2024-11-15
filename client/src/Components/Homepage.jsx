@@ -5,9 +5,10 @@ import '/public/HomePage.css'
 import Navbar from './Navbar'
 import Card from "./Card";
 function HomePage(){
+    
     return(<div className="main">
      
-  
+  <Navbar />
   <div className="Stage">
   <div className="card1">
   <Card img="/public/eco-shopping-animate.svg" title="Add Product" content="New Stock ? Add it right here !" say="Add"sendRequest="/Addproduct"/>

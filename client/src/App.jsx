@@ -5,7 +5,7 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Contactus from './components/Contactus'
 import Updateproduct from './components/Updateproduct'
 import Addproduct from './components/Addproduct'
-import Login from "./components/Login"
+import Login from "./Components/Login"
 import BarcodeScanner from "./pages/react"
 import SupplierDetails from './components/SupplierDetail';
 import ProductDetailPage from './components/ProductDetailPage';
@@ -40,7 +40,7 @@ function App(){
 
         <Route path="/Login" element={<Login />} />
         <Route path="/home" element={<HomePage />} />
-
+        <Route path="/Notification" element={<Notification />} />
         <Route path="/Productdetail" element={<Productdetail />} />
         <Route path='/AddProductDetail' element={<AddByBarcodeScanner/>}/>
         <Route path="/scan" element={<BarcodeScanner />} />

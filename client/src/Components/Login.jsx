@@ -124,10 +124,10 @@ function Login() {
             </video>
             <div className="Container">
                 <div className="Header">
-                    <div className="text">{action}</div>
+                    <div className="text1">{action}</div>
                     <div className="underLine"></div>
                 </div>
-                <form method="post" onSubmit={handleFormSubmit}>
+                <form className="form1" method="post" onSubmit={handleFormSubmit}>
                     <div className="radioInput">
                         <label>
                             <input

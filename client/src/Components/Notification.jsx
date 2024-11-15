@@ -1,6 +1,7 @@
 import React from 'react';
 import './Notification.css';
 
+
 function Notification( {notification} ) {
     console.log(notification)
     return (

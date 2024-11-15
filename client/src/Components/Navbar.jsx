@@ -25,16 +25,16 @@ function Navbar(){
                     <img src="/public/seld.png" alt="logo" />
                 </div>
                 <div className="hamburger" onClick={toggleSidebar}>
-                    ☰
+                    
                 </div>
                 <ul className={`nav-links ${isOpen ? "active" : ""}`}>
                     <span className="close-btn"onClick={closeSidebar} >✕</span>
                     <li><a  onClick={gotoShop} >Shop</a></li>
-                    <li><a  >Notifications</a></li>
-                    <li><a  >Contact</a></li>
+                    <li><a href="/Notification"  >Notifications</a></li>
+                    <li><a href="/Contactus" >Contact</a></li>
                     <li><a  >Suppliers</a></li>
                     <li><a >Logout</a></li>
-                    <li><a className="profile-icon" >👤</a></li>
+                   
                 </ul>
             </nav>
             </div>

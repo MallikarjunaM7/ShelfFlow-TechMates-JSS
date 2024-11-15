@@ -1,13 +1,14 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom'
-
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"></link>
+import '/public/card.css'
 function Card(props){
   const navigate=useNavigate();
   function handleClick(){
       navigate(props.sendRequest);
   }
     return(
-        <div className="card" style={{ width: '23rem', height: '29rem' }}>
+        <div className="cardhome" >
       <img
         className=" clsImg bd-placeholder-img card-img-top" 
         width="100%" 
@@ -23,9 +24,14 @@ function Card(props){
        
       </img>
       <div className="card-body">
-        <h5 className="card-title">{props.title}</h5>
+        <h5 className="card-title1">{props.title}</h5>
         <p className="card-text">{props.content}</p>
-        <a href="#" className=" btn-primary" onClick={handleClick}>Go somewhere</a>
+        <button className="Btn" onClick={handleClick}>
+  
+  <div class="sign">+</div>
+  
+  <div class="text">{props.say}</div>
+</button>
       </div>
     </div>
     )

@@ -3,25 +3,14 @@
     justify-content: center;
     align-items: center;
     background-color: #a8e1e8;
-    padding: 40px;
-    height: 100vh;
+    font-family: poppins,sans-serif;
+    height: 90vh;
     gap: 20px;
     position: relative;
+    
   }
   
-  .contact-info {
-    background: #fff;
-    color: white;
-    width: 320px;
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 4px 12px rgba(227, 221, 221, 0.1);
-     position: relative;
-    top: 20px;          
-    margin-right: -40px; 
-    z-index: 2;  
-  
-  }
+
   
   .contact-form {
     background: #fff;
@@ -53,6 +42,7 @@
   
   .info-item {
     display: flex;
+    
     align-items: center;
     margin-bottom: 20px;
   }
@@ -63,7 +53,9 @@
   }
   
   .contact-form {
-    width: 400px;
+    
+    width: 450px;
+    height: 430px;
     padding: 40px;
   }
   
@@ -74,6 +66,7 @@
   }
   
   .contact-form form {
+    
     display: flex;
     flex-direction: column;
   }

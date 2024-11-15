@@ -27,9 +27,9 @@ function Card(props){
         <p className="card-text">{props.content}</p>
         <button class="Btn" onClick={handleClick}>
   
-  <div class="sign">+</div>
+  <div className="sign">+</div>
   
-  <div class="text">{props.say}</div>
+  <div className="text">{props.say}</div>
 </button>
       </div>
     </div>

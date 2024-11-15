@@ -20,5 +20,6 @@ router.route("/allSupplier").post(getAllSupplier)
 router.route("/notifications").post(sendNotification)
 router.route("/verifyotp/:email").post(verifyOtp)
 router.route("/soldproducts").post(authControllers.soldProducts)
+router.route("/addorder").post(authControllers.addOrder)
 
 module.exports = router

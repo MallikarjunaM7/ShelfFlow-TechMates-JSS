@@ -9,7 +9,7 @@ const AddByBarcodeScanner = () => {
     const [items, setItems] = useState("")
     const [amountInput, setAmountInput] = useState(false)
     const [itemDetails, setItemDetails] = useState([])
-    const [amount, setAmount] = useState({quantity: 0, expDate: ""})
+    const [amount, setAmount] = useState({quantity: 0, expDate: "", productname: ''})
     const {token, shopid} = useAuth()
     const [add, setAdd] = useState(false)
     const [incart, setIncart] = useState([])
@@ -53,32 +53,6 @@ const AddByBarcodeScanner = () => {
 
     }
 
-    const getCartItems = async() => {
-        try {
-            const response = await fetch("http://localhost:5000/api/auth/getcartitems", {
-                method: "GET",
-                headers:{
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`,
-                    ShopID: shopid
-                }
-            })
-
-            const message = await response.json();
-            setIncart(message.cartItems)
-            setAdd(true)
-            console.log("Runned")
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    useEffect(() => {
-        if(add){
-            setTable(true)
-        }
-    }, [add])
     
     
     useEffect(() => {
@@ -86,7 +60,6 @@ const AddByBarcodeScanner = () => {
         console.log("Loaded")
 
         startScanner();
-        getCartItems()
         
 
         
@@ -129,41 +102,48 @@ const AddByBarcodeScanner = () => {
     }
 
     useEffect(() => {
-        console.log(items)
+        console.log("sssssssssssssssssss", items)
     }, [items])
 
 
     const handleAdd = async(e) => {
         e.preventDefault()
-        console.log("add")
-        setItemDetails( [...itemDetails, {productname: items, quantity: Number(amount)}])
         setAmountInput(false)
-    }
-
-    const addToCart = async() => {
-        console.log(itemDetails)
-        const response = await fetch(`${backapi}/api/auth/addtocart`, {
+        amount.productname = items;
+        const response = await fetch("http://localhost:5000/api/auth/addorder", {
             method: "POST",
-            headers: {
-                "Content-Type": `application/json`,
-                Authorization: `Bearer ${token}`,
-                ShopID: shopid
+            headers:{
+                "Content-Type": "application/json",
             },
-            body: JSON.stringify(itemDetails[itemDetails.length - 1])
+            body: JSON.stringify(amount)
         })
-        await getCartItems()
     }
 
-    useEffect(() => {
-        console.log("itemdetails", itemDetails)
-        if(itemDetails.length > 0){
-            addToCart()
-        }
-    }, [itemDetails])
+    // const addToCart = async() => {
+    //     console.log(itemDetails)
+    //     const response = await fetch(`${backapi}/api/auth/addtocart`, {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": `application/json`,
+    //             Authorization: `Bearer ${token}`,
+    //             ShopID: shopid
+    //         },
+    //         body: JSON.stringify(itemDetails[itemDetails.length - 1])
+    //     })
+    //     await getCartItems()
+    // }
+
+    // useEffect(() => {
+    //     console.log("itemdetails", itemDetails)
+    //     if(itemDetails.length > 0){
+    //         addToCart()
+    //     }
+    // }, [itemDetails])
 
     const handleAmount = (e) => {
-        const {value} = e.target;
-        setAmount(value)
+        const {name, value} = e.target;
+        console.log(name, value)
+        setAmount({...amount, [name]: value})
     }
 
     const deleteUserById = async(itemId) => {
@@ -247,7 +227,7 @@ const AddByBarcodeScanner = () => {
             
                 <form onSubmit={handleAdd}  action="" className="form">
                     <input onChange={handleAmount} type="number" placeholder='Quantity' name='quantity' />
-                    <input type="date" />
+                    <input onChange={handleAmount} type="date" name='expDate'/>
                     <button  type='submit' className="btn">Add</button>
                 </form>
                
@@ -258,7 +238,7 @@ const AddByBarcodeScanner = () => {
         </div>
         </div>
         <div className="table-container">
-      <table className="product-table">
+      {/* <table className="product-table">
         <thead>
           <tr>
             <th>Product</th>
@@ -277,8 +257,8 @@ const AddByBarcodeScanner = () => {
             </tr>
           ))}
         </tbody>
-      </table>
-      <button onClick={handleUpdate}>Update Stocks</button>
+      </table> */}
+      {/* <button onClick={handleUpdate}>Update Stocks</button> */}
     </div>
         </div>
        

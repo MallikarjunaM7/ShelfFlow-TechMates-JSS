@@ -14,9 +14,8 @@ const orderSchema = new mongoose.Schema({
     required: true,
   },
   current_date: {
-    type: Date, 
-    required: true,
-    default: Date.now, 
+    type: String, 
+
   },
   shopId:{
     type:String,
@@ -26,9 +25,13 @@ const orderSchema = new mongoose.Schema({
 
 
 orderSchema.pre("save", function (next) {
-  this.current_date = new Date()
+  const date = new Date();
+  const formattedDate = `${String(date.getDate()).padStart(2, '0')}-${String(date.getMonth() + 1).padStart(2, '0')}-${date.getFullYear()}`;
+  console.log(formattedDate)
+  this.current_date = formattedDate
   next()
 });
+
 
 const Orders = mongoose.model("orders", orderSchema);
 module.exports = Orders;

@@ -47,7 +47,6 @@ const BarcodeScanner = () => {
             console.log(`Code detected: ${code}`);
             document.getElementById('result').innerText = `Scanned Code: ${code}`;
 
-            Quagga.stop();
             setData(code)
         });
 

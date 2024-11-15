@@ -25,7 +25,7 @@ function App(){
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/updateproduct" element={<Updateproduct />} />
         <Route path="/Addproduct" element={<Addproduct />} />
-
+        <Route path='/notification' element={<NotificationPage/>}/>
         <Route path="/Login" element={<Login />} />
         <Route path="/home" element={<HomePage />} />
 

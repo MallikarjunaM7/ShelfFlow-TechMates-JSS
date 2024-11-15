@@ -14,7 +14,7 @@ function HomePage(){
   </div>
   
   <div className="card1">
-  <Card img="/public/checking-boxes-animate.svg" title="Add Stock" content="Stock Refill ? Add it right here !"say="Add"/>
+  <Card img="/public/checking-boxes-animate.svg" title="Add Stock" sendRequest="/AddProductDetail" content="Stock Refill ? Add it right here !"say="Add"/>
   </div>
   <div className="card1">
   <Card img="/public/barcode-animate.svg"title="Scan With BarCode" content="Got a customer ? Scan here" sendRequest = "/Scan" say="Scan"/>

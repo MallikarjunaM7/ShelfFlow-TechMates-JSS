@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-import './Addproduct.css';
+import React, { useEffect, useState } from "react";
+import "./Addproduct.css"
 
 function AddProduct() {
-
-  const [imageinput, setImageInput] = useState(false)
-  const [imgsource, setImagesource] = useState("")
-  const backapi = `http://localhost:5000`
+  const [imgSource, setImageSource] = useState("");
+  const [path, setPath] = useState("");
+  const backApi = `http://localhost:5000`;
 
   const [formData, setFormData] = useState({
     productName: "",
@@ -19,30 +18,31 @@ function AddProduct() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Form submitted successfully!");
     console.log("Submitted Data:", formData);
 
     try {
-      console.log(formData)
-        const response = await fetch(`${backapi}/api/auth/insertproduct`, {
-          method: "POST",
-          headers:{
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(formData)
-        })
-        const message = await response.json();
-        console.log(message)
-        setImagesource(message.imagesource)
-        setImageInput(true)
+      const response = await fetch(`${backApi}/api/auth/insertproduct`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const message = await response.json();
+      setImageSource(message.imagesource); // Backend should return the filename of the image
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
-  const imgpath = `../../public/images/${imgsource}`
+  // Update path whenever imgSource is updated
+  useEffect(() => {
+    if (imgSource) {
+      setPath(`/images/${imgSource}`);
+    }
+  }, [imgSource]);
 
   return (
     <div className="app-background1">
@@ -95,7 +95,15 @@ function AddProduct() {
           </label>
           <button type="submit" className="form-button1">Generate Barcode</button>
         </form>
-        <img src={imgpath} alt="" />
+      </div>
+
+      {/* Display download link only if path is set */}
+      <div>
+        {path && (
+          <a href={path} download="barcode.png" className="download-button">
+            Download Barcode
+          </a>
+        )}
       </div>
     </div>
   );

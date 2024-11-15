@@ -182,11 +182,27 @@ const scanProduct = async(req, res) => {
     }
     return res.json({productname: fetchProduct.productname})
 }
+<<<<<<< HEAD
 const addOrder = async(req, res) => {
     console.log(req.body, "WORKINGGGGGGGGGGGGGGGGGGGG")
     const {quantity, expDate, productname} = req.body;
     const shopId = req.shopId || "SHOP001"
     const createOrder = await Orders.create({quantity: quantity, exp_date: expDate, name: productname, shopId: shopId})    
+=======
+const getProducts = async(req, res) => {
+    const shopid = req.shopid || "SHOP001"
+    const allProducts = await Products.find({shopid: shopid});
+    console.log(allProducts)
+    res.json({products: allProducts})
+}
+
+const productDetails = async(req, res) => {
+    const productId = req.params.productId;
+    console.log(productId)
+    const product = await Products.findOne( {_id: productId});
+    console.log(product)
+    return res.json(product)
+>>>>>>> 1e7bd8a7b2f428acf6663cc38a2b891d5e7bf08f
 }
 
 
@@ -206,5 +222,10 @@ const soldProducts = async (req, res) => {
     }
 };
 
+module.exports = {updateStock, addToCart, insertProduct, updateProduct, deleteItem, getCartItems, scanProduct, getProducts, productDetails, soldProducts};
 
+
+<<<<<<< HEAD
 module.exports = {addOrder, updateStock, addToCart, insertProduct, updateProduct, deleteItem, getCartItems, scanProduct, soldProducts};
+=======
+>>>>>>> 1e7bd8a7b2f428acf6663cc38a2b891d5e7bf08f

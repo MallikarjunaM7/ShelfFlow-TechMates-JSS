@@ -5,13 +5,18 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom"
 import Contactus from './components/Contactus'
 import Updateproduct from './components/Updateproduct'
 import Addproduct from './components/Addproduct'
-import Login from "./components/Login"
+import Login from "./Components/Login"
 import BarcodeScanner from "./pages/react"
+import SupplierDetails from './components/SupplierDetail';
+import ProductDetailPage from './components/ProductDetailPage';
+import NotificationPage from './components/NotificationPage';
+
 import HomePage from './Components/Homepage';
 import Productdetail from './components/productdetail';
-import SupplierDetails from './components/SupplierDetail';
+
 import NotificationPage from './components/NotificationPage';
 import AddByBarcodeScanner from './pages/addStock';
+
 
 function App(){
 
@@ -25,15 +30,27 @@ function App(){
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/updateproduct" element={<Updateproduct />} />
         <Route path="/Addproduct" element={<Addproduct />} />
+<<<<<<< HEAD
         <Route path='/notification' element={<NotificationPage/>}/>
+=======
+
+        <Route path="/Productdetail" element={<ProductDetailPage />} />
+        <Route path="/scan" element={<BarcodeScanner />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path='/notification' element={<NotificationPage/>}/>
+        <Route path="product/:product" element={<Updateproduct/>}/>
+
+
+>>>>>>> 1e7bd8a7b2f428acf6663cc38a2b891d5e7bf08f
         <Route path="/Login" element={<Login />} />
         <Route path="/home" element={<HomePage />} />
-
+        <Route path="/Notification" element={<Notification />} />
         <Route path="/Productdetail" element={<Productdetail />} />
         <Route path='/AddProductDetail' element={<AddByBarcodeScanner/>}/>
         <Route path="/scan" element={<BarcodeScanner />} />
         <Route path="/" element={<Dashboard />} />
         {/* <Route path='/notification' element={<NotificationPage/>}/> */}
+
         </Routes>
       </Router>
     </>

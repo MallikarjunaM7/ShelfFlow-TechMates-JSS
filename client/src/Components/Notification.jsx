@@ -1,5 +1,9 @@
 import React from 'react';
 import './Notification.css';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1e7bd8a7b2f428acf6663cc38a2b891d5e7bf08f
 
 function Notification( {notification} ) {
     console.log(notification)
@@ -27,3 +31,4 @@ function Notification( {notification} ) {
 }
 
 export default Notification;
+

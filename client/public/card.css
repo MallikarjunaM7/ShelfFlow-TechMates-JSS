@@ -4,8 +4,19 @@
     
     
 }
+.cardhome{
+    margin-bottom: -20px;
+}
+.card-title1{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: black;
+    font-family: poppins , sans-serif;
+    font-size: 20px;
+}
 .cardhome img{
-    height: 400px;
+    height: 450px;
+    margin-bottom: 30px;
 }
 .card-body{
     display: flex;
@@ -13,10 +24,7 @@
     align-items: center;
     justify-self:center
 }
-.card-body h5{
-    color: black;
-    font-family: poppins , sans-serif;
-}
+
 .card-body p{
     font-family: poppins , sans-serif;
 }
@@ -70,14 +78,14 @@
     transition-duration: .3s;
     padding-left: 20px;
   }
-  /* hover effect button's text */
+  
   .Btn:hover .text {
     opacity: 1;
     width: 70%;
     transition-duration: .3s;
-    padding-right: 20px;
+    padding-right: 5px;
   }
-  /* button click effect*/
+
   .Btn:active {
     transform: translate(2px ,2px);
   }

@@ -45,6 +45,7 @@ function AddProduct() {
   }, [imgSource]);
 
   return (
+
     <div className="app-background1">
       <div className="form-container1">
         <h1 className="form-heading1">Product Information</h1>
@@ -60,6 +61,7 @@ function AddProduct() {
               required
             />
           </label>
+
           <label className="form-label1">
             Supplier Name:
             <input
@@ -71,6 +73,7 @@ function AddProduct() {
               required
             />
           </label>
+          <label>
           <label className="form-label1">
             Supplier Email:
             <input
@@ -82,6 +85,7 @@ function AddProduct() {
               required
             />
           </label>
+
           <label className="form-label1">
             Price:
             <input

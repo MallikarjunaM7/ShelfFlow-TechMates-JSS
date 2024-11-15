@@ -18,6 +18,9 @@ router.route("/deleteitemincart").post(authControllers.deleteItem)
 router.route("/deleteproduct").post(authControllers.deleteItem);
 router.route("/allSupplier").post(getAllSupplier)
 router.route("/notifications").post(sendNotification)
+router.route("/getproducts").post(authControllers.getProducts)
+router.route("/product/:productId").get(authControllers.productDetails)
+
 router.route("/verifyotp/:email").post(verifyOtp)
 router.route("/soldproducts").post(authControllers.soldProducts)
 router.route("/addorder").post(authControllers.addOrder)

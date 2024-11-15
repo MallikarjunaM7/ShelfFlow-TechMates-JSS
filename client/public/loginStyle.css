@@ -15,7 +15,7 @@
     backdrop-filter: blur(2px); /* Blurs content behind the container */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
 }
-form {
+.form1{
     width: 100%; /* Ensures the form takes up full width */
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@ form {
     width: 100%;
     margin-top: 25px;
 }
-.text{
+.text1{
     color:rgb(129, 0, 250) ;
     font-size: 40px;
     font-weight: 700;
@@ -195,7 +195,7 @@ video {
       margin-top: 15px;
     }
   
-    .text {
+    .text1 {
       font-size: 30px; /* Decrease font size for smaller screens */
     }
   

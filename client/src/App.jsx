@@ -28,7 +28,7 @@ function App(){
 
         <Route path="/Login" element={<Login />} />
         <Route path="/home" element={<HomePage />} />
-
+        <Route path="/Notification" element={<Notification />} />
         <Route path="/Productdetail" element={<Productdetail />} />
         <Route path='/AddProductDetail' element={<AddByBarcodeScanner/>}/>
         <Route path="/scan" element={<BarcodeScanner />} />

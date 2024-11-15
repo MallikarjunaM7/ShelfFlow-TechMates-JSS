@@ -1,5 +1,5 @@
 import React from 'react';
-import './NotificationTable.css';
+import './Notification.css';
 
 function Notification() {
     const notifications = [

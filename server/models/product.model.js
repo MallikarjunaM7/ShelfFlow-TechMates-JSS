@@ -30,13 +30,11 @@ const productSchema = new mongoose.Schema({
   },
   shopid: {
     type: String,
-    required: true,
-    ref: "Admin",
+    
   },
   productthreshold: {
     type: Number,
   },
-
   supplierName:{
     type:String,
     required: true

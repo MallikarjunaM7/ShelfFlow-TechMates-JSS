@@ -19,8 +19,7 @@ const adminSchema = new mongoose.Schema({
   },
   shopID: {
     type: String,
-    required: true,
-    unique: true,
+
   },
 });
 

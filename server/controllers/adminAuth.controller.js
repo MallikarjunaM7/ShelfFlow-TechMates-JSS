@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer")
 const registerAdmin  = async(req, res) =>{
 
     const {adminName, email, password} = req.body;
-    const shopID = crypto.randomBytes(8).toString("hex");
+    const shopID = "SHOP001"
     console.log(email)
     console.log(shopID)
 
@@ -37,10 +37,34 @@ const registerAdmin  = async(req, res) =>{
         if (error) {
           console.log(error);
         } else {
-            const createOtp = await Otps.create({shopid: shopID,username: adminName, email: email, password, otp})
+            const createOtp = await Otps.create({shopid: "SHOP001",username: adminName, email: email, password, otp})
             return res.status(200).json({msg: "Email Sent"})
         }
       });
+}
+
+const verifyOtp = async(req, res) => {
+  const userOtp = req.body.otp
+  const email = req.params.email
+  const users =  await Otps.find({email: email})
+  const singleUser = users[users.length - 1]
+  
+  if(singleUser && userOtp === singleUser.otp){
+      try {
+          const password = singleUser.password
+          const userCreated = await Admin.create({adminName: singleUser.username, email, password, shopID: singleUser.shopid})
+          await Otps.deleteMany({email: email})
+          return res.status(201).json({
+              sucmsg: "Registered Successfully: Login",
+              userId: userCreated._id.toString()
+          })
+  
+      } catch (error) {
+          console.log(error)
+      }
+  }else{
+      return res.status(500).json({inmsg: "OTP entered is Incorrect"})
+  }
 }
 
 const loginAuth = async(req, res) =>{
@@ -62,10 +86,12 @@ const loginAuth = async(req, res) =>{
   console.log(accessToken)
 
   return res.status(200).json(
-      {admin, accessToken, sucmsg: "Loggined Successfully" }
+      {admin, accessToken, sucmsg: "Logged in successfully" }
   )
 }
 
 
 
-module.exports = {registerAdmin, loginAuth}
+
+module.exports = {registerAdmin, loginAuth, verifyOtp}
+

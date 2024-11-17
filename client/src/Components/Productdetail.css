@@ -1,13 +1,11 @@
 .product-card-container {
     display: flex;
-    flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     align-items: start;
     padding: 30px;
     background-color: #e0e5ec;
-    min-height: 100vh;
+   
 }
-
 
 .product-card {
     width: 280px; 

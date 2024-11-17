@@ -12,10 +12,9 @@ import ProductDetailPage from './components/ProductDetailPage';
 import NotificationPage from './components/NotificationPage';
 
 import HomePage from './Components/Homepage';
-import Productdetail from './components/productdetail';
 
-import NotificationPage from './components/NotificationPage';
 import AddByBarcodeScanner from './pages/addStock';
+import ProductTable from './components/Moresoldproduct';
 
 
 function App(){
@@ -30,10 +29,9 @@ function App(){
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/updateproduct" element={<Updateproduct />} />
         <Route path="/Addproduct" element={<Addproduct />} />
-<<<<<<< HEAD
         <Route path='/notification' element={<NotificationPage/>}/>
-=======
-
+        <Route path='/soldproducts' element={<ProductTable/>}/>
+        <Route path='/suppliers' element={<SupplierDetails/>}/>
         <Route path="/Productdetail" element={<ProductDetailPage />} />
         <Route path="/scan" element={<BarcodeScanner />} />
         <Route path="/" element={<Dashboard />} />
@@ -41,11 +39,9 @@ function App(){
         <Route path="product/:product" element={<Updateproduct/>}/>
 
 
->>>>>>> 1e7bd8a7b2f428acf6663cc38a2b891d5e7bf08f
         <Route path="/Login" element={<Login />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/Notification" element={<Notification />} />
-        <Route path="/Productdetail" element={<Productdetail />} />
         <Route path='/AddProductDetail' element={<AddByBarcodeScanner/>}/>
         <Route path="/scan" element={<BarcodeScanner />} />
         <Route path="/" element={<Dashboard />} />

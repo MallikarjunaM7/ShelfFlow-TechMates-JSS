@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Moresoldproduct.css';
-
+import Navbar from './Navbar';
 function ProductTable() {
-    const products = [
-        { name: 'Product A', totalSold: 50, price: 100, quantity: 200, revenueGenerated: 5000, threshold: 20 },
-        { name: 'Product B', totalSold: 30, price: 200, quantity: 100, revenueGenerated: 6000, threshold: 15 },
-        { name: 'Product C', totalSold: 70, price: 150, quantity: 300, revenueGenerated: 10500, threshold: 25 },
-        { name: 'Product D', totalSold: 90, price: 80, quantity: 250, revenueGenerated: 7200, threshold: 30 }
-    ];
+    // State to store products data
+    const [products, setProducts] = useState([]);
+
+    // Fetch the data when the component mounts
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const response = await fetch("http://localhost:5000/api/auth/soldproducts", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ shopid: "SHOP001" }),
+                });
+
+                const message = await response.json();
+                if (message.items) {
+                    setProducts(message.items); // Update state with fetched data
+                }
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        }
+
+        fetchData();
+    }, []); // Empty dependency array ensures the fetch runs only once when the component mounts
 
     return (
+        <>
+        <Navbar />
         <div className="product-table-container">
             <h2 className="product-table-title">More Sold Product</h2>
             <table className="product-table">
@@ -24,20 +46,27 @@ function ProductTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {products.map((product, index) => (
-                        <tr key={index} className="product-table-row">
-                            <td className="product-table-cell">{product.name}</td>
-                            <td className="product-table-cell">{product.totalSold}</td>
-                            <td className="product-table-cell"> ₹{product.price}</td>
-                            <td className="product-table-cell">{product.quantity}</td>
-                            <td className="product-table-cell"> ₹{product.revenueGenerated}</td>
-                            <td className="product-table-cell">{product.threshold}</td>
+                    {products.length > 0 ? (
+                        products.map((product, index) => (
+                            <tr key={index} className="product-table-row">
+                                <td className="product-table-cell">{product.productname}</td>
+                                <td className="product-table-cell">{product.total_sold}</td>
+                                <td className="product-table-cell">₹{product.price}</td>
+                                <td className="product-table-cell">{product.quantity}</td>
+                                <td className="product-table-cell">₹{product.revenue_generated}</td>
+                                <td className="product-table-cell">{product.productthreshold}</td>
+                            </tr>
+                        ))
+                    ) : (
+                        <tr>
+                            <td className="product-table-cell" colSpan="6">No products found.</td>
                         </tr>
-                    ))}
+                    )}
                 </tbody>
             </table>
         </div>
+        </>
     );
 }
 
-export default Moresoldproduct;
+export default ProductTable;

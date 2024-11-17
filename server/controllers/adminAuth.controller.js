@@ -9,7 +9,7 @@ const nodemailer = require("nodemailer")
 const registerAdmin  = async(req, res) =>{
 
     const {adminName, email, password} = req.body;
-    const shopID = crypto.randomBytes(8).toString("hex");
+    const shopID = "SHOP001"
     console.log(email)
     console.log(shopID)
 
@@ -40,7 +40,7 @@ const registerAdmin  = async(req, res) =>{
         if (error) {
           console.log(error);
         } else {
-            const createOtp = await Otps.create({shopid: shopID,username: adminName, email: email, password, otp})
+            const createOtp = await Otps.create({shopid: "SHOP001",username: adminName, email: email, password, otp})
             return res.status(200).json({msg: "Email Sent"})
         }
       });

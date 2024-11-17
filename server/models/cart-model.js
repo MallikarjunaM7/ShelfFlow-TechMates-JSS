@@ -12,7 +12,7 @@ const cartSchema = new mongoose.Schema({
   shopid: {
     type: String,
     required: true,
-    ref: "Admin",
+   
   }
 })
 

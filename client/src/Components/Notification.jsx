@@ -1,13 +1,12 @@
 import React from 'react';
 import './Notification.css';
-<<<<<<< HEAD
-=======
-
->>>>>>> 1e7bd8a7b2f428acf6663cc38a2b891d5e7bf08f
+import Navbar from './Navbar';
 
 function Notification( {notification} ) {
     console.log(notification)
     return (
+        <>
+        <Navbar />
         <div className="notification-table-container">
             <h2 className="notification-table-title">Notifications</h2>
             <table className="notification-table">
@@ -27,6 +26,7 @@ function Notification( {notification} ) {
                 </tbody>
             </table>
         </div>
+        </>
     );
 }
 

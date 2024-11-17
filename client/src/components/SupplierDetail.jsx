@@ -2,12 +2,12 @@ import React from "react";
 
 import { useEffect, useState } from "react";
 import SupplierDetailsCard from "./SupplierDetailsCard";
-import { useAuth } from "../store/auth";
+
 
 function SupplierDetails() {
   const [data, setData] = useState([]);
-      const backapi = "http://localhost:5000"
-  const shopid = useAuth()
+  const backapi = "http://localhost:5000"
+  
   useEffect(() => {
     const fetchData = async () => {
       
@@ -16,18 +16,18 @@ function SupplierDetails() {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(shopid)
+          body: JSON.stringify({shopid: "SHOP001"})
         });
         
         if (response.ok) {
           const result = await response.json()
           
-          setData(result.products)
+          setData(result.data)
         } 
     };
 
     fetchData()
-  }, [shopid])
+  }, [])
   
   console.log(data)
   return (

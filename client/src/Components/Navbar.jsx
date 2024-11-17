@@ -14,7 +14,7 @@ function Navbar(){
             setIsOpen(false);
         }
         const gotoShop=() =>{
-            navigate("/Shop")
+            navigate("/Productdetail")
         }
 
         
@@ -22,7 +22,7 @@ function Navbar(){
           <div>
             <nav className="navbar">
                 <div className="logo">
-                    <img src="/public/seld.png" alt="logo" />
+                   <a href="/home"> <img src="/public/seld.png" alt="logo" /></a>
                 </div>
                 <div className="hamburger" onClick={toggleSidebar}>
                     
@@ -32,6 +32,7 @@ function Navbar(){
                     <li><a  onClick={gotoShop} >Shop</a></li>
                     <li><a href="/Notification"  >Notifications</a></li>
                     <li><a href="/Contactus" >Contact</a></li>
+                    <li><a href="/soldproducts" >Stats</a></li>
                     <li><a  >Suppliers</a></li>
                     <li><a >Logout</a></li>
                    

@@ -1,12 +1,12 @@
 const supplierModel = require('../models/supplier.model');
 
 const getAllSupplier = async(req, res)=>{
-  const {shopId} = req.body;
+  console.log("Come")
 
-  const Allsupplier = await supplierModel.find({});
+  const allSuplliers = await supplierModel.find({})
+  console.log(allSuplliers)
 
-  res.status(200).json(Allsupplier)
-
+  return res.json({data: allSuplliers})
 
 }
 

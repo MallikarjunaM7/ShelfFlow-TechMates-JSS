@@ -19,7 +19,7 @@ const otpSchema = new mongoose.Schema({
     },
     shopid: {
         type: String,
-        require: true
+
     }
 })
 

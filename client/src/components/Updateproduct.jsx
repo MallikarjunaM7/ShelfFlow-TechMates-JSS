@@ -91,7 +91,7 @@ function UpdateProduct() {
                         <input type="number" name="quantity" value={product.quantity} onChange={handleChange} className="product-form-input" disabled required />
                     </label>
                     <label className="product-form-label">Price
-                        <input type="number" name="price" value={product.price} onChange={handleChange} className="product-form-input" disabled required />
+                        <input type="number" name="price" value={product.price} onChange={handleChange} className="product-form-input"  required />
                     </label>
                     <label className="product-form-label">Supplier Name
                         <input type="text" name="supplierName" value={product.supplierName} onChange={handleChange} disabled className="product-form-input" required />
@@ -103,7 +103,7 @@ function UpdateProduct() {
                         <input type="number" name="revenue_generated" value={product.revenue_generated} onChange={handleChange} disabled className="product-form-input" required />
                     </label>
                     <label className="product-form-label">Threshold Quantity
-                        <input type="number" name="productthreshold" value={product.productthreshold} onChange={handleChange} disabled  className="product-form-input" required />
+                        <input type="number" name="productthreshold" value={product.productthreshold} onChange={handleChange}   className="product-form-input" required />
                     </label>
                     <button type="submit" className="product-form-submit">Update</button>
                 </form>

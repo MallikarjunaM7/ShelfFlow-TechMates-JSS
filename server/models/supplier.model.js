@@ -4,22 +4,15 @@ const mongoose = require("mongoose");
 const supplierSchema = new mongoose.Schema({
   supplierName: {
     type: String,
-    required: true,
   },
   supplierEmail: {
     type: String,
     required: true,
-    unique: true,
   },
-  shopId:{
-    type:String,
-    
-    unique: true
-  },
+
   products:[
     {
       type: String,
-      required: true
     }
   ]
 });

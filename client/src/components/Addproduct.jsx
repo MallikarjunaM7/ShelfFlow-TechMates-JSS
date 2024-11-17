@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import "./Addproduct.css"
-
+import "./Addproduct.css";
+import Navbar from "./Navbar";
 function AddProduct() {
   const [imgSource, setImageSource] = useState("");
   const [path, setPath] = useState("");
@@ -45,7 +45,8 @@ function AddProduct() {
   }, [imgSource]);
 
   return (
-
+    <>
+    <Navbar />
     <div className="app-background1">
       <div className="form-container1">
         <h1 className="form-heading1">Product Information</h1>
@@ -73,7 +74,7 @@ function AddProduct() {
               required
             />
           </label>
-          <label>
+
           <label className="form-label1">
             Supplier Email:
             <input
@@ -97,6 +98,7 @@ function AddProduct() {
               required
             />
           </label>
+
           <button type="submit" className="form-button1">Generate Barcode</button>
         </form>
       </div>
@@ -110,6 +112,7 @@ function AddProduct() {
         )}
       </div>
     </div>
+    </>
   );
 }
 
